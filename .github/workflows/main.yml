@@ -1,0 +1,24 @@
+name: Handle Noop Webserver Releases
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  build-and-publish:
+    name: Build and Publish New Versions of Noop Webserver
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Noop Discovery Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Publish to NPM
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
