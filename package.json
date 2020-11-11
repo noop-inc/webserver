@@ -1,0 +1,40 @@
+{
+  "name": "noop-webserver",
+  "version": "1.0.0",
+  "description": "Noop HTTP Web Server",
+  "main": "index.js",
+  "scripts": {
+    "postversion": "git push && git push --tags",
+    "test": "mocha",
+    "watch": "mocha --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noop-cloud/noop-webserver.git"
+  },
+  "keywords": [
+    "logging",
+    "json",
+    "noop"
+  ],
+  "author": "Chloe Wintzer",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/noop-cloud/noop-webserver/issues"
+  },
+  "homepage": "https://github.com/noop-cloud/noop-webserver#readme",
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "mocha": "^8.2.0",
+    "openssl-wrapper": "^0.3.4",
+    "standard": "^15.0.0"
+  },
+  "dependencies": {
+    "async": "^2.6.3"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}

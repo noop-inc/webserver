@@ -1,0 +1,5 @@
+node_modules
+.vscode
+notes
+play.js
+.DS_Store
