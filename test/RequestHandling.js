@@ -20,8 +20,14 @@ describe('Request Handling', function () {
           listenInsecure: true
         })
         webserver.on('stream', stream => {
-          if (stream.method === 'POST') {
-            stream.readRequestBody((err, data) => {
+          if (stream.pathname === '/json') {
+            stream.request.readJson((err, json) => {
+              if (err) return stream.error(err)
+              if (json.foo !== 'bar') return stream.error(new Error(`bad json body ${json}`))
+              stream.json(json)
+            })
+          } else if (stream.method === 'POST') {
+            stream.request.readBody((err, data) => {
               if (err) return stream.error(err)
               const status = (data === 'bar') ? 202 : 404
               stream.respond({ ':status': status }).response.end('pwomp')
@@ -123,6 +129,24 @@ describe('Request Handling', function () {
       if (err) return done(err)
       if (headers[':status'] !== 202) return done(new Error('wrong status code'))
       if (body !== 'pwomp') return done(new Error(`wrong body '${body}'`))
+      done()
+    })
+  })
+
+  it('HTTPS/1 JSON Body Parsing', function (done) {
+    const params = {
+      path: '/json',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      port: webserver.securePort,
+      method: 'POST',
+      ca: ca.cert,
+      checkServerIdentity: function () {}
+    }
+    request.https1(params, JSON.stringify({ foo: 'bar' }), (err, res) => {
+      if (err) return done(err)
+      if (res.statusCode !== 200) return done(new Error(`wrong status code ${res.statusCode}`))
       done()
     })
   })
