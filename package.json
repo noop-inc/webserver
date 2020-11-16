@@ -1,6 +1,6 @@
 {
   "name": "noop-webserver",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Noop HTTP Web Server",
   "main": "index.js",
   "scripts": {
