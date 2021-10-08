@@ -92,7 +92,10 @@ describe('Proxying', function () {
       const connectParams = {
         ca: ca.cert,
         checkServerIdentity: function () {},
-        peerMaxConcurrentStreams: 1024
+        peerMaxConcurrentStreams: 1024,
+        settings: {
+          maxConcurrentStreams: 4294967295
+        }
       }
       request.https2(ws1.securePort, headers, connectParams, null, (err, headers, body) => {
         if (err) return done(err)
