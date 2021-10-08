@@ -91,7 +91,8 @@ describe('Proxying', function () {
       const headers = { ':path': '/foo?bar=1&bow=2', ':method': 'GET' }
       const connectParams = {
         ca: ca.cert,
-        checkServerIdentity: function () {}
+        checkServerIdentity: function () {},
+        peerMaxConcurrentStreams: 1024
       }
       request.https2(ws1.securePort, headers, connectParams, null, (err, headers, body) => {
         if (err) return done(err)
