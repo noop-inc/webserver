@@ -66,8 +66,8 @@ describe('Proxying', function () {
       }
       request.http1(params, null, (err, res, body) => {
         if (err) return done(err)
-        if (res.statusCode !== 207) return done(new Error('wrong status code'))
-        if (body !== 'pwoxy') return done(new Error(`wrong body '${body}'`))
+        if (res.statusCode !== 207) return done(new Error(`Wrong status code | Expected "207", Recieved: "${res.statusCode}"`))
+        if (body !== 'pwoxy') return done(new Error(`Wrong body | Expected "pwoxy", Recieved "${body}"`))
         done()
       })
     })
@@ -81,8 +81,8 @@ describe('Proxying', function () {
       }
       request.https1(params, null, (err, res, body) => {
         if (err) return done(err)
-        if (res.statusCode !== 207) return done(new Error('wrong status code'))
-        if (body !== 'pwoxy') return done(new Error(`wrong body '${body}'`))
+        if (res.statusCode !== 207) return done(new Error(`Wrong status code | Expected "207", Recieved: "${res.statusCode}"`))
+        if (body !== 'pwoxy') return done(new Error(`Wrong body | Expected "pwoxy", Recieved "${body}"`))
         done()
       })
     })
@@ -99,8 +99,8 @@ describe('Proxying', function () {
       }
       request.https2(ws1.securePort, headers, connectParams, null, (err, headers, body) => {
         if (err) return done(err)
-        if (headers[':status'] !== 207) return done(new Error('wrong status code'))
-        if (body !== 'pwoxy') return done(new Error(`wrong body '${body}'`))
+        if (headers[':status'] !== 207) return done(new Error(`Wrong status code | Expected "207", Recieved: "${headers[':status']}"`))
+        if (body !== 'pwoxy') return done(new Error(`Wrong body | Expected "pwoxy", Recieved "${body}"`))
         done()
       })
     })
@@ -114,8 +114,8 @@ describe('Proxying', function () {
       const payload = 'watson'
       request.http1(params, payload, (err, res, body) => {
         if (err) return done(err)
-        if (res.statusCode !== 201) return done(new Error(`wrong status code ${res.statusCode}`))
-        if (body !== payload) return done(new Error(`wrong body '${body}'`))
+        if (res.statusCode !== 201) return done(new Error(`Wrong status code | Expected "201", Recieved: "${res.statusCode}"`))
+        if (body !== payload) return done(new Error(`Wrong body | Expected "${payload}", Recieved "${body}"`))
         done()
       })
     })
@@ -131,8 +131,8 @@ describe('Proxying', function () {
       const payload = 'frob'
       request.https1(params, payload, (err, res, body) => {
         if (err) return done(err)
-        if (res.statusCode !== 201) return done(new Error(`wrong status code ${res.statusCode}`))
-        if (body !== payload) return done(new Error(`wrong body '${body}'`))
+        if (res.statusCode !== 201) return done(new Error(`Wrong status code | Expected "201", Recieved: "${res.statusCode}"`))
+        if (body !== payload) return done(new Error(`Wrong body | Expected "${payload}", Recieved "${body}"`))
         done()
       })
     })
@@ -146,8 +146,8 @@ describe('Proxying', function () {
       const payload = 'bloop'
       request.https2(ws1.securePort, headers, connectParams, payload, (err, headers, body) => {
         if (err) return done(err)
-        if (headers[':status'] !== 201) return done(new Error(`wrong status code ${headers[':status']}`))
-        if (body !== payload) return done(new Error(`wrong body '${body}'`))
+        if (headers[':status'] !== 201) return done(new Error(`Wrong status code | Recieved: ${headers[':status']}`))
+        if (body !== payload) return done(new Error(`Wrong body | Expected "${payload}", Recieved "${body}"`))
         done()
       })
     })
