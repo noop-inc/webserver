@@ -4,13 +4,17 @@
   "description": "Noop HTTP Web Server",
   "main": "index.js",
   "scripts": {
+    "lint": "run () { standard --fix --verbose $1 | snazzy; }; run",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
     "postversion": "git push && git push --tags",
+    "prepublishOnly": "pinst --disable",
     "test": "mocha",
     "watch": "mocha --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noop-cloud/noop-webserver.git"
+    "url": "git+https://github.com/noop-cloud/webserver.git"
   },
   "keywords": [
     "logging",
@@ -20,18 +24,21 @@
   "author": "Chloe Wintzer",
   "license": "GPL",
   "bugs": {
-    "url": "https://github.com/noop-cloud/noop-webserver/issues"
+    "url": "https://github.com/noop-cloud/webserver/issues"
   },
-  "homepage": "https://github.com/noop-cloud/noop-webserver#readme",
+  "homepage": "https://github.com/noop-cloud/webserver#readme",
   "devDependencies": {
+    "husky": "^7.0.4",
     "mocha": "^9.1.3",
     "openssl-wrapper": "^0.3.4",
+    "pinst": "^2.1.6",
+    "snazzy": "^9.0.0",
     "standard": "^16.0.4"
   },
   "dependencies": {
     "async": "^3.2.2",
-    "qs": "^6.10.1",
-    "ws": "^8.2.3"
+    "qs": "^6.10.2",
+    "ws": "^8.4.0"
   },
   "standard": {
     "env": [

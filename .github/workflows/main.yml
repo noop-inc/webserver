@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout Noop Discovery Repo
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
       - name: Publish to NPM
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
           registry-url: 'https://registry.npmjs.org'
+      - name: Update NPM Version
+        run: npm i -g npm@latest
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
