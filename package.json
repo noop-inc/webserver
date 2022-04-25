@@ -33,7 +33,7 @@
     "openssl-wrapper": "^0.3.4",
     "pinst": "^3.0.0",
     "snazzy": "^9.0.0",
-    "standard": "^16.0.4"
+    "standard": "^17.0.0"
   },
   "dependencies": {
     "async": "^3.2.3",
