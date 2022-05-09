@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/noop-cloud/webserver#readme",
   "devDependencies": {
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "mocha": "^9.2.2",
     "openssl-wrapper": "^0.3.4",
     "pinst": "^3.0.0",
