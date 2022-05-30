@@ -38,7 +38,7 @@
   "dependencies": {
     "async": "^3.2.3",
     "qs": "^6.10.3",
-    "ws": "^8.5.0"
+    "ws": "^8.7.0"
   },
   "standard": {
     "env": [
