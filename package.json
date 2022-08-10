@@ -28,17 +28,17 @@
   },
   "homepage": "https://github.com/noop-cloud/webserver#readme",
   "devDependencies": {
-    "husky": "^7.0.4",
-    "mocha": "^9.2.2",
+    "husky": "^8.0.1",
+    "mocha": "^10.0.0",
     "openssl-wrapper": "^0.3.4",
     "pinst": "^3.0.0",
     "snazzy": "^9.0.0",
-    "standard": "^16.0.4"
+    "standard": "^17.0.0"
   },
   "dependencies": {
-    "async": "^3.2.3",
-    "qs": "^6.10.3",
-    "ws": "^8.5.0"
+    "async": "^3.2.4",
+    "qs": "^6.11.0",
+    "ws": "^8.8.1"
   },
   "standard": {
     "env": [
